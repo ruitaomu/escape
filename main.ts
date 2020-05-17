@@ -25,23 +25,23 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
     //% blockIdentity=images._tile
-    export const tile1 = img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+    export const tile4 = img`
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d b b d d d d d d d d d d d d 
+d d d b d d d d d d d d d d d d 
+d d d d d d d d d d b d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d b d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
 `
 }
 function destroyAllEnemies () {
@@ -60,7 +60,7 @@ function destroyAllGems () {
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (sprite, location) {
     if (level == 2) {
-        game.over()
+        game.over(true)
     } else {
         destroyAllEnemies()
         destroyAllGems()
@@ -102,7 +102,7 @@ function setLevelMap (level: number) {
 . . . 2 . . 2 2 2 2 2 2 . . 2 . 
 . . . 2 . . 2 . . . . 2 . . . 2 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile1],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile4],
             TileScale.Sixteen
         ))
     } else if (level == 1) {
@@ -110,7 +110,7 @@ function setLevelMap (level: number) {
         gemNumber = 6
         levelTime = 25
         tiles.setTilemap(tiles.createTilemap(
-            hex`14001400181818161616181818181818181818181818181818181818181818180109090909090909081818181818181818181818030a0a0a0a0a0a0a071818181818181818181818030a0a181818180a071818181901091018181818030a0a181818180a0718181818030a0718181818030a0a181818180a0718181818030a0718181818030a0a181818180a0718181818030a0718181818030a0a090909090a0718181818030a0718181818030a07161616160a0718181818030a0a090909090a0a07161616160a0718181818030a0a0a0a0a0a0a0a0718191818030a09090818030a0a0a0a050505050618181819030a0a0a07161616160a071818181818181818181616160a07161616160a07181818181819181818030a0a0a07161616160a07181818181818181818030a050506181616160a07181818181818181818030718181818181616160a0909090909090909090a07181818181816161605050505050505050a0a0a071818181818181616181818181818181804050a061818181818181616181818181818181818180f18181818`,
+            hex`14001400171717161616171717171717171717171717171717171717171717170109090909090909081717171717171717171717030a0a0a0a0a0a0a071717171717171717171717030a0a171717170a071717171801091017171717030a0a171717170a0717171717030a0717171717030a0a171717170a0717171717030a0717171717030a0a171717170a0717171717030a0717171717030a0a090909090a0717171717030a0717171717030a07161616160a0717171717030a0a090909090a0a07161616160a0717171717030a0a0a0a0a0a0a0a0717181717030a09090817030a0a0a0a050505050617171718030a0a0a07161616160a071717171717171717171616160a07161616160a07171717171718171717030a0a0a07161616160a07171717171717171717030a050506171616160a07171717171717171717030717171717171616160a0909090909090909090a07171717171716161605050505050505050a0a0a071717171717171616171717171717171704050a061717171717171616171717171717171717170f17171717`,
             img`
 . . . . . . . 2 2 2 2 2 2 2 2 2 2 2 2 . 
 . . . . . . . 2 . . . . . . . . . 2 . . 
@@ -133,7 +133,7 @@ function setLevelMap (level: number) {
 . . . . 2 2 2 2 2 2 2 2 2 . . . . 2 . . 
 . . . . 2 2 . . . . . . 2 2 2 . 2 2 . . 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile1,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass2],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass2,myTiles.tile4],
             TileScale.Sixteen
         ))
     } else {
@@ -141,7 +141,7 @@ function setLevelMap (level: number) {
         gemNumber = 9
         levelTime = 50
         tiles.setTilemap(tiles.createTilemap(
-            hex`19001900181818181818181818181818181818181818181818181818181c191919191919191919191919191919191919191919191818181919191919191919191919191919191919191919191918181819191919191919191818181819202020202020191919181d1819190f1818181818181c181819202020202020191919181d181919181b1b1818181818181819202020202020191919181d1b1919181b1b1819191919191919202020202020191919181d1b1818181b1b18191919191919191919191919191919191818181818181b1b181919191919191919191919191919191918181818181b1b1b1819191d1818191919191919191919191918181818181b1b1b1819191d1c181919181c1818191d1d1d1d18181819191919191919191d1a18191918181c18191d1d1d1d18181819191919191919191d1a18191919191919191919191818181819191918181818181818181818191919191918191918181818191919181818181818191910181818181919181919191918181919191819191919191919191a1818181919181919191918181919191819191919191919191a1818181919181919181818181919191819191818181f1f1f1818181819191819191b181818181919181919181f181f1f1f1f1f181819191819191818181b181919181919191919191919191919191919181919181b181b1819191819191919191919191919191919191819191818181f1819191818181818181818181818181818181819191818181f181919191919191919191919191919191919191919181b181f1819191919191919191919191919191919191919191818181f181818181818181818181818181818181818181818181818`,
+            hex`19001900171717171717171717171717171717171717171717171717171b1818181818181818181818181818181818181818181817171718181818181818181818181818181818181818181818171717181818181818181817171717181f1f1f1f1f1f181818171c1718180f1717171717171b1717181f1f1f1f1f1f181818171c171818171a1a17171717171717181f1f1f1f1f1f181818171c1a1818171a1a17181818181818181f1f1f1f1f1f181818171c1a1717171a1a17181818181818181818181818181818181717171717171a1a171818181818181818181818181818181817171717171a1a1a1718181c1717181818181818181818181817171717171a1a1a1718181c1b171818171b1717181c1c1c1c17171718181818181818181c1917181817171b17181c1c1c1c17171718181818181818181c19171818181818181818181817171717181818171717171717171717171818181818171818171717171818181717171717171818101717171718181718181818171718181817181818181818181819171717181817181818181717181818171818181818181818191717171818171818171717171818181718181717171e1e1e1717171718181718181a171717171818171818171e171e1e1e1e1e171718181718181717171a171818171818181818181818181818181818171818171a171a1718181718181818181818181818181818181718181717171e1718181717171717171717171717171717171718181717171e171818181818181818181818181818181818181818171a171e1718181818181818181818181818181818181818181717171e171717171717171717171717171717171717171717171717`,
             img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 . . . . . . . . . . . . . . . . . . . . . . 2 2 
@@ -169,7 +169,7 @@ function setLevelMap (level: number) {
 2 2 . . . . . . . . . . . . . . . . . . . . 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,myTiles.tile1,sprites.dungeon.floorLight0,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLightMoss,sprites.dungeon.floorLight5,sprites.dungeon.floorLight3,sprites.dungeon.floorLight4,sprites.dungeon.greenOuterEast2,sprites.dungeon.floorLight1,sprites.dungeon.floorLight2],
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tileGrass2,sprites.castle.tilePath4,sprites.castle.tilePath7,sprites.castle.tilePath8,sprites.castle.tilePath9,sprites.castle.tilePath6,sprites.castle.tilePath3,sprites.castle.tilePath2,sprites.castle.tilePath5,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.dungeon.stairNorth,sprites.dungeon.doorOpenSouth,sprites.dungeon.stairLadder,sprites.dungeon.stairLarge,sprites.builtin.forestTiles20,sprites.builtin.forestTiles24,sprites.builtin.forestTiles27,sprites.builtin.forestTiles11,sprites.builtin.forestTiles7,sprites.builtin.forestTiles0,sprites.dungeon.floorLight0,sprites.dungeon.darkGroundCenter,sprites.dungeon.floorLightMoss,sprites.dungeon.floorLight5,sprites.dungeon.floorLight3,sprites.dungeon.floorLight4,sprites.dungeon.greenOuterEast2,sprites.dungeon.floorLight1,sprites.dungeon.floorLight2,myTiles.tile4],
             TileScale.Sixteen
         ))
     }
